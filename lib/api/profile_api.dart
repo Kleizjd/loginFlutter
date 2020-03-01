@@ -9,7 +9,10 @@ import '../app_config.dart';
 class ProfileAPI {
   Future<dynamic> getUserInfo(BuildContext context, String token) async {
     try {
-      final url = "${AppConfig.apiHost}/user-info";
+      final url = "${AppConfig.apiHost}/users/userInfo";
+//      final url = "${AppConfig.apiHost}/user-info";
+
+      print('url getUserInfo: '+url);
 
       final response = await http.get(url, headers: {"token": token});
 

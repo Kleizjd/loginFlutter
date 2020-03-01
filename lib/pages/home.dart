@@ -15,6 +15,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Me _me;
 
+  _scheduleUser(){
+    var userId = _me.data.toJson();
+    userId = userId['_id'] as String;
+    return userId;
+  }
   @override
   void initState() {
     super.initState();
@@ -65,9 +70,16 @@ class _HomePageState extends State<HomePage> {
         ],
         elevation: 0,
       ),
-      body: Center(
-        child: Text(_me.data.toJson().toString()),
-      ),
+      body: Column(
+        children: <Widget>[
+          Center(
+            child: Text(_me.data.toJson().toString()),
+          ),
+          Container(
+            child: Text(_scheduleUser()),
+          )
+        ],
+      )
     );
   }
 }

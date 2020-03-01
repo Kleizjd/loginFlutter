@@ -178,7 +178,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                     color: Colors.pinkAccent,
                                     borderRadius: BorderRadius.circular(4),
                                     onPressed: ()=> _submit(),
-                                    child: Text("Sign in", style: TextStyle(fontSize: 20)),
+                                    child: Text("Registrate", style: TextStyle(fontSize: 20)),
                                   ),
                                 ),
                                 SizedBox(height: 20),

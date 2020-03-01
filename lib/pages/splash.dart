@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -6,6 +5,8 @@ import '../api/auth_api.dart';
 import '../api/profile_api.dart';
 import '../models/user.dart';
 import '../providers/me.dart';
+import 'dart:async';
+
 
 class SplashPage extends StatefulWidget {
   @override

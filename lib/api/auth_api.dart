@@ -14,16 +14,18 @@ class AuthAPI {
   Future<bool>  register(BuildContext context,{@required String username, @required String email,@required String password}) async {
 
     try {
-      final url = "${AppConfig.apiHost}/register";
-
+//      final url = "${AppConfig.apiHost}/register";
+      final url = "${AppConfig.apiHost}/users/create";
+      print('url: '+ url);
       final response = await http.post(url,body: {"username": username, "email": email, "password": password});
-      print("login: ${response.body}");
+      print("\n-----------------------------------------------------");
+      print("sign up: ${response.body}");
       final parsed = jsonDecode(response.body);
 
       if (response.statusCode == 200) {
         final token = parsed['token'] as String;
         final expiresIn = parsed['expiresIn'] as int;
-        print("response 200: ${response.body}");
+//        print("response 200: ${response.body}");
         // save token
         await _registerToken(token);
         await _session.set(token, expiresIn);
@@ -43,20 +45,20 @@ class AuthAPI {
   Future<bool> login(BuildContext context,
       {@required String email, @required String password}) async {
     try {
-//      final url = "${AppConfig.apiHost}/users/login";
-      final url = "${AppConfig.apiHost}/login";
+      final url = "${AppConfig.apiHost}/users/login";
+//      final url = "${AppConfig.apiHost}/login";
 
       final response =
       await http.post(url, body: {"email": email, "password": password});
-
+      print("\n-----------------------------------------------------");
+      print("login: ${response.body}");
       final parsed = jsonDecode(response.body);
-
       if (response.statusCode == 200) {
         final token = parsed['token'] as String;
         final expiresIn = parsed['expiresIn'] as int;
 
         // save token
-
+        print('token: Login: ${token}');
         await _registerToken(token);
 
         await _session.set(token, expiresIn);
@@ -76,7 +78,8 @@ class AuthAPI {
   ///////TOKENS PARA DETERMINAR LA DURACION DE LA SESSION DEL USUARIO
   _registerToken(String token) async {
     try {
-      final url = "${AppConfig.apiHost}/tokens/register";
+      final url = "${AppConfig.apiHost}/users/registerToken";
+//      final url = "${AppConfig.apiHost}/tokens/register";
 
       final response = await http.post(url, headers: {"token": token});
 
@@ -88,7 +91,7 @@ class AuthAPI {
         throw PlatformException(code: "500", message: parsed['message']);
       }
 
-      throw PlatformException(code: "201", message: "Error /tokens/register");
+      throw PlatformException(code: "201", message: "Error /users/registerToken");
     } on PlatformException catch (e) {
       print("Error ${e.code}:${e.message}");
     }
@@ -96,8 +99,9 @@ class AuthAPI {
 
   Future<dynamic> _refreshToken(String expiredToken) async {
     try {
-      final url = "${AppConfig.apiHost}/tokens/refresh";
 
+      final url = "${AppConfig.apiHost}/users/refreshToken";
+//      final url = "${AppConfig.apiHost}/tokens/refresh";
       final response = await http.post(url, headers: {"token": expiredToken});
 
       final parsed = jsonDecode(response.body);
@@ -108,7 +112,7 @@ class AuthAPI {
         throw PlatformException(code: "500", message: parsed['message']);
       }
 
-      throw PlatformException(code: "201", message: "Error /tokens/refresh");
+      throw PlatformException(code: "201", message: "Error /user/refreshToken");
     } on PlatformException catch (e) {
       print("Error ${e.code}:${e.message}");
       return null;
