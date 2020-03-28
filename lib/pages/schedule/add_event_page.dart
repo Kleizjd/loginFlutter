@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_secret_chat/widgets/agenda_interface/custom_date_time_picker.dart';
-import 'package:flutter_secret_chat/widgets/agenda_interface/custom_modal_action_button.dart';
-import 'package:flutter_secret_chat/widgets/agenda_interface/custom_textfield.dart';
+import 'package:flutter_secret_chat/widgets/schedule_interface/custom_date_time_picker.dart';
+import 'package:flutter_secret_chat/widgets/schedule_interface/custom_modal_action_button.dart';
+import 'package:flutter_secret_chat/widgets/schedule_interface/custom_textfield.dart';
 
 class AddEventPage extends StatefulWidget {
   @override

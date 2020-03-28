@@ -1,9 +1,20 @@
+
 import 'package:flutter/material.dart';
+import 'package:flutter_secret_chat/api/schedule_api.dart';
+import 'package:flutter_secret_chat/models/schedule_user.dart';
+import 'package:flutter_secret_chat/providers/me.dart';
+import 'package:flutter_secret_chat/providers/schedule.dart';
 import 'package:flutter_secret_chat/widgets/agenda_interface/custom_button.dart';
 import 'package:flutter_secret_chat/widgets/notification/local_notifications_helpers.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:http/http.dart' as http;
+import '../../app_config.dart';
+import 'dart:convert';
 
 class TaskPage extends StatefulWidget {
+  final userId;
+
+  const TaskPage({Key key, this.userId}) : super(key: key);
   @override
   _TaskPageState createState() => _TaskPageState();
 }
@@ -16,6 +27,7 @@ class Task {
 final List<Task> _taskList =[
 //  new Task(task, isFinish)
   new Task ("llama a Jose para la cita",false),
+  new Task ("llama a Jose TASK PAGE",false),
   new Task ("Arreglar asunto con el desarrollador",false),
   new Task ("Negocios realizados correctamente", true),
   new Task ("Negocios realizados correctamente", true),
@@ -24,16 +36,18 @@ final List<Task> _taskList =[
   new Task ("Negocios realizados correctamente", true),
 
 ];
+
 class _TaskPageState extends State<TaskPage> {
 
-  _saveSchedule() async {
-
-  }
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(padding: const EdgeInsets.all(0), itemCount: _taskList.length,itemBuilder: (context, index){
-      return _taskList[index].isFinish ? _tareaCompleta(_taskList[index].task): _tareaIncompleta(_taskList[index]);
-    });
+//    return ListView.builder(
+    return ListView.builder(
+        padding: const EdgeInsets.all(0),
+        itemCount: _taskList.length,
+        itemBuilder: (context, index){
+          return _taskList[index].isFinish ? _tareaCompleta(_taskList[index].task): _tareaIncompleta(_taskList[index]);
+        });
   }
   Widget _tareaCompleta(String tarea) {
     return Container(
@@ -52,6 +66,7 @@ class _TaskPageState extends State<TaskPage> {
   }
 
   Widget _tareaIncompleta(Task data) {
+//  Widget _tareaIncompleta(Task data) {
     return InkWell(
       onTap: () {
         showDialog(context: context, builder: (context){

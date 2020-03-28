@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_secret_chat/utils/dialogs.dart';
 import 'package:flutter_secret_chat/utils/session.dart';
-import 'package:flutter_secret_chat/widgets/agenda_interface/custom_button.dart';
+import 'package:flutter_secret_chat/widgets/schedule_interface/custom_button.dart';
 
 /// SCHEDULE INTERFACE ///
 
 import 'package:flutter_secret_chat/widgets/menu_ejercicios.dart';
 import 'package:flutter_secret_chat/widgets/carrusel.dart';
-import 'task_page.dart';
+//import 'task_page.dart';
+import 'v1TaskPage/task_page.dart';
 import 'add_event_page.dart';
 import 'add_task_page.dart';
 import 'event_page.dart';
@@ -35,7 +36,6 @@ class _AgendaHomeState extends State<AgendaHome> {
   void initState() {
 
     super.initState();
-//    user = _me.data.toJson();
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
   }
 
@@ -60,10 +60,10 @@ class _AgendaHomeState extends State<AgendaHome> {
   @override
   Widget build(BuildContext context) {
     _me = Me.of(context);
+
     _pageController.addListener((){
       setState(() {
         currentPage = _pageController.page;
-
       });
     });
     return Scaffold(
@@ -85,6 +85,7 @@ class _AgendaHomeState extends State<AgendaHome> {
               barrierDismissible: false, context: context,
               builder: (BuildContext context){
                 return Dialog(
+//                  child: currentPage == 1 ? AddEventPage(): AddTaskPage(context, userId: user['userId'].toString(),),
                   child: currentPage == 1 ? AddEventPage(): AddTaskPage(),
                   //                  child: AddTaskPage(),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12))),
@@ -146,11 +147,10 @@ class _AgendaHomeState extends State<AgendaHome> {
 
   /// CONTENIDO PRINCIPAL DE LA AGENDA /MAIN SCHEDULE CONTENT
   Widget _mainContent(context) {
-    var user = _scheduleUser();
-
+    _scheduleUser();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[SizedBox(height: 60,),
+      children: <Widget>[SizedBox(height: 60),
         Padding(
           padding: const EdgeInsets.all(24.0),
           child: Text(user['username'].toString(), style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
@@ -162,7 +162,7 @@ class _AgendaHomeState extends State<AgendaHome> {
         ),
         Expanded(child: PageView(
           controller: _pageController,
-          children: <Widget>[EventPage(),TaskPage()],))
+          children: <Widget>[TaskPage(userId: user['_id'].toString(),), EventPage()],))
 //          children: <Widget>[TaskPage()],))
       ],
     );
