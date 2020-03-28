@@ -42,44 +42,44 @@ class _HomePageState extends State<HomePage> {
     _me = Me.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        brightness: Brightness.light,
-        actions: <Widget>[
-          PopupMenuButton(
-            icon: Icon(
-              Icons.more_vert,
-              color: Colors.black,
-            ),
-            onSelected: (String value) {
-              if (value == "exit") {
-                _onExit();
-              }
-            },
-            itemBuilder: (context) => [
-              PopupMenuItem(
-                value: "share",
-                child: Text("Share App"),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          brightness: Brightness.light,
+          actions: <Widget>[
+            PopupMenuButton(
+              icon: Icon(
+                Icons.more_vert,
+                color: Colors.black,
               ),
-              PopupMenuItem(
-                value: "exit",
-                child: Text("Exit App"),
-              )
-            ],
-          )
-        ],
-        elevation: 0,
-      ),
-      body: Column(
-        children: <Widget>[
-          Center(
-            child: Text(_me.data.toJson().toString()),
-          ),
-          Container(
-            child: Text(_scheduleUser()),
-          )
-        ],
-      )
+              onSelected: (String value) {
+                if (value == "exit") {
+                  _onExit();
+                }
+              },
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  value: "share",
+                  child: Text("Share App"),
+                ),
+                PopupMenuItem(
+                  value: "exit",
+                  child: Text("Exit App"),
+                )
+              ],
+            )
+          ],
+          elevation: 0,
+        ),
+        body: Column(
+          children: <Widget>[
+            Center(
+              child: Text(_me.data.toJson().toString()),
+            ),
+            Container(
+              child: Text(_scheduleUser()),
+            )
+          ],
+        )
     );
   }
 }

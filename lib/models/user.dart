@@ -13,7 +13,8 @@ class User {
         username: json['username'],
         email: json['email'],
         createdAt: createdAt,
-        updatedAt: updatedAt);
+        updatedAt: updatedAt
+    );
   }
 
   Map<String, dynamic> toJson() {

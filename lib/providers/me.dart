@@ -14,6 +14,4 @@ class Me extends ChangeNotifier{
   }
 
   static Me of(BuildContext context)=>Provider.of<Me>(context);
-
-
 }

@@ -7,30 +7,36 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
 
+  built_value: ^7.0.4 #acortara la creacion de codigo
+  built_collection: ^4.3.2 #//////-----//
+  logger: ^0.8.3
+
+  groovin_material_icons: ^1.1.5
   cupertino_icons: ^0.1.2
-  http: ^0.12.0+4
+  http: ^0.12.0
   provider: ^3.1.0
   intl: ^0.16.0
   date_format: ^1.0.8
   android_alarm_manager: ^0.4.1+6
-  flutter_local_notifications: ^1.1.5+1
+#  flutter_local_notifications: ^1.1.5+1
+  flutter_local_notifications: ^1.3.0
   path_provider: ^1.6.0
   #seguridad
   flutter_secure_storage: ^3.3.1+1
   carousel_slider: ^1.3.0
 
 
-
-#  table_calendar: ^2.2.2
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^1.7.1
+  built_value_generator: ^7.0.4
 
 flutter:
   uses-material-design: true

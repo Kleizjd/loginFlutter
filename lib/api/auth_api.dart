@@ -11,7 +11,7 @@ import '../utils/session.dart';
 class AuthAPI {
   final _session = Session();
 
-  Future<bool>  register(BuildContext context,{@required String username, @required String email,@required String password}) async {
+  Future<bool> register(BuildContext context,{@required String username, @required String email,@required String password}) async {
 
     try {
 //      final url = "${AppConfig.apiHost}/register";

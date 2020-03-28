@@ -18,12 +18,12 @@ import 'event_page.dart';
 import 'package:flutter_secret_chat/providers/me.dart';
 
 
-class AgendaHome extends StatefulWidget {
+class ScheduleHome extends StatefulWidget {
   @override
-  _AgendaHomeState createState() => _AgendaHomeState();
+  _ScheduleHomeState createState() => _ScheduleHomeState();
 }
 
-class _AgendaHomeState extends State<AgendaHome> {
+class _ScheduleHomeState extends State<ScheduleHome> {
   //////////////////////////////////////////////////////////////////////
   Me _me;
   var user;

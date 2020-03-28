@@ -130,7 +130,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                             label: "Nombre completo",
                                             fontSize: responsive.ip(1.6),
                                             validator:(String text){
-                                              if(RegExp(r'^[a-zA-Z0-9]+$').hasMatch(text)){
+                                              if(RegExp(r'^[a-zA-Z0-9\s]+$').hasMatch(text)){///agregue el espacio en el nombre \s
                                                 _username=text;
                                                 return null;
                                               }
@@ -152,7 +152,8 @@ class _SignUpPageState extends State<SignUpPage> {
                                           ),
                                           SizedBox(height: 12),
                                           InputText(
-                                            label: "Contrasena", isSecure: true,
+                                            label: "Contrasena",
+//                                            isSecure: true,
                                             fontSize: responsive.ip(1.6),
                                             validator:(String text){
                                             if(text.isNotEmpty && text.length>5){

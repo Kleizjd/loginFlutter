@@ -2,18 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class Dialogs {
-  static void alert(BuildContext context,
-      {String title = '', String message: ''}) {
-    showDialog(
-        context: context,
-        builder: (context) {
+  static void alert(BuildContext context,{String title = '', String message: ''}) {
+    showDialog(context: context,builder: (context) {
           return CupertinoAlertDialog( title: Text(
-              title,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
+            title,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          ),
             content: Text(
               message,
-              style: TextStyle(fontWeight: FontWeight.w300, fontSize: 15),
+              style: TextStyle(fontWeight: FontWeight.w800, fontSize: 15),
             ),
             actions: <Widget>[
               CupertinoDialogAction(
@@ -57,6 +54,7 @@ class Dialogs {
           );
         });
   }
+  ///animacion cargando
   static Widget loading(){
     return Positioned.fill(child: Container(
       color: Colors.black45,

@@ -5,7 +5,6 @@ class Circle extends StatelessWidget {
   final List<Color> colors;
 
   const Circle({Key key,@required this.radius,@required this.colors}) : super(key : key);
-//
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,9 @@ class Circle extends StatelessWidget {
           gradient: LinearGradient(
               colors: this.colors,
               begin: Alignment.topRight,
-              end: Alignment.bottomLeft)),);
+              end: Alignment.bottomLeft)
+      ),
+    );
   }
 }
 

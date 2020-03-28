@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_secret_chat/widgets/agenda_interface/custom_icon_decoration.dart';
+import 'package:flutter_secret_chat/widgets/schedule_interface/custom_icon_decoration.dart';
 
 
 class EventPage extends StatefulWidget {

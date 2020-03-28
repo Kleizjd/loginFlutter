@@ -5,7 +5,7 @@ import 'package:flutter_secret_chat/models/schedule_user.dart';
 import 'package:flutter_secret_chat/providers/schedule.dart';
 import 'package:flutter_secret_chat/widgets/schedule_interface/custom_button.dart';
 import 'package:flutter_secret_chat/widgets/notification/local_notifications_helpers.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+//import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:convert';
 
 import 'package:intl/intl.dart';

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secret_chat/api/schedule_api.dart';
 import 'package:flutter_secret_chat/providers/me.dart';
 import 'package:flutter_secret_chat/utils/dialogs.dart';
-import 'package:flutter_secret_chat/widgets/agenda_interface/custom_date_time_picker.dart';
-import 'package:flutter_secret_chat/widgets/agenda_interface/custom_modal_action_button.dart';
-import 'package:flutter_secret_chat/widgets/agenda_interface/custom_textfield.dart';
+import 'package:flutter_secret_chat/widgets/schedule_interface/custom_date_time_picker.dart';
+import 'package:flutter_secret_chat/widgets/schedule_interface/custom_modal_action_button.dart';
+import 'package:flutter_secret_chat/widgets/schedule_interface/custom_textfield.dart';
 import 'package:intl/intl.dart';
 
 
